@@ -201,7 +201,7 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
       <div class="gaps" id="gapsBox"><b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.</div>
       <button class="btn" onclick="window.print()">⬇ Download / print summary</button>
       <a class="btn secondary" href="#how">How to send this to your customer</a>
-      <p style="font-size:11px;color:var(--muted);margin:12px 0 0;text-align:center">Methodology: GHG Protocol · Scope 2 via CEA all-India grid factor.</p>
+      <p style="font-size:11px;color:var(--muted);margin:12px 0 0;text-align:center">Methodology: GHG Protocol · Scope 2 via CEA all-India grid factor (V21).</p>
     </div>
   </div>
 </main>
@@ -224,22 +224,50 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
     <h2>Common questions</h2>
     <details open><summary>Why did my customer suddenly ask for this?</summary><p>Large listed companies in India must report ESG data under SEBI's BRSR framework, and from FY2026-27 that extends to their value chain — their significant suppliers. If you export, your buyers face the EU's CSRD with the same effect. You're not being singled out; it's becoming a routine part of being a supplier.</p></details>
     <details><summary>Do I need to buy ESG software?</summary><p>No. The expensive platforms are built for the large company doing the asking. To <em>answer</em>, you need your real numbers, honest policy answers, and a clean summary — exactly what this free tool gives you.</p></details>
-    <details><summary>Why not just use a free UK/US carbon calculator?</summary><p>India's grid is ~3× more carbon-intensive (~0.71 kg CO₂/kWh vs ~0.2). A Western tool understates your footprint by ~70% and gives your customer a number they can't use. This tool uses India's official CEA grid emission factor.</p></details>
+    <details><summary>Why not just use a free UK/US carbon calculator?</summary><p>India's grid is ~3× more carbon-intensive (0.7117 kg CO₂/kWh per CEA V21, vs ~0.2). A Western tool understates your footprint by ~70% and gives your customer a number they can't use. This tool uses India's official CEA grid emission factor.</p></details>
     <details><summary>Is my data stored anywhere?</summary><p>No. Everything is calculated in your browser. Nothing you type here is sent to a server or saved.</p></details>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Free step-by-step guides</h2>
+    <div style="display:grid;gap:10px;margin-top:6px">
+      <a href="/got-an-esg-questionnaire/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">Got an ESG questionnaire from a customer? What to do →</a>
+      <a href="/brsr-value-chain-suppliers/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">BRSR value-chain rules for suppliers (FY2026–27) →</a>
+      <a href="/calculate-carbon-footprint-small-business-india/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">How to calculate your small business carbon footprint in India →</a>
+      <a href="/vsme-template-explained/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">The VSME template explained — for small suppliers →</a>
+      <a href="/esg-evidence-folder-msme/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">The 1-page data folder that answers every questionnaire →</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="text-align:center">
+  <div class="wrap" style="max-width:560px">
+    <h2>Get the editable evidence-folder template</h2>
+    <p style="margin-top:-6px">A free spreadsheet with every field a customer questionnaire asks for — fill once, reuse forever. We'll email it to you.</p>
+    <form id="leadForm" onsubmit="return submitLead(event)" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+      <input type="email" id="leadEmail" required placeholder="you@company" style="flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px">
+      <button class="btn" type="submit" style="width:auto;margin:0;padding:11px 22px">Send it to me</button>
+    </form>
+    <p id="leadMsg" style="font-size:13px;color:var(--green-d);min-height:18px;margin-top:10px"></p>
+    <p style="font-size:11.5px;color:var(--muted)">We never share your email. No spam — the template plus occasional supplier-ESG tips.</p>
   </div>
 </section>
 
 <footer>
   <p class="method">
-    <b>Methodology &amp; honesty note:</b> Scope&nbsp;2 emissions use the CEA all-India grid emission factor; Scope&nbsp;1 uses standard IPCC/DEFRA fuel factors. This is an educational self-assessment to help you respond to a customer's request — not legal or assurance advice. Always confirm specific obligations with your customer's procurement team. We never fabricate numbers and we don't sell your data.
+    <b>Methodology &amp; honesty note:</b> Scope&nbsp;2 emissions use the CEA all-India grid emission factor (V21.0, FY2024-25: 0.7117 kg&nbsp;CO₂/kWh); Scope&nbsp;1 uses standard IPCC/DEFRA fuel factors. This is an educational self-assessment to help you respond to a customer's request — not legal or assurance advice. Always confirm specific obligations with your customer's procurement team. We never fabricate numbers and we don't sell your data.
   </p>
   <p>© 2026 ESG Answer · esganswer.com · An independent tool for Indian suppliers.</p>
 </footer>
 
 <script>
 // ===== Emission factors (kg CO2e per unit) =====
-// VERIFY before launch: update EF.elec to the exact CEA CO2 Baseline Database V21 (FY2024-25) value.
-var EF = { elec:0.71, diesel:2.68, petrol:2.31, lpg:2.98, cng:2.69 };
+// elec: CEA CO2 Baseline Database V21.0 (FY2024-25), all-India weighted-average grid EF
+//       = 0.7117 tCO2/MWh = 0.7117 kg CO2/kWh. Source: cea.nic.in (published Nov 2025).
+//       Update annually when CEA publishes the next version.
+var EF = { elec:0.7117, diesel:2.68, petrol:2.31, lpg:2.98, cng:2.69 };
 var LPG_KG_PER_CYL = 19;
 
 var YN = { minwage:null, safety:null, posh:null, child:null, coc:null };
@@ -298,6 +326,23 @@ function calc(){
   else { g.innerHTML='<b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.'; }
 }
 calc();
+
+// ===== Email capture =====
+// TODO before launch: paste your Formspree / Netlify Forms endpoint below to actually
+// receive emails. Until then, entries are kept in localStorage only (nothing is sent).
+var FORM_ENDPOINT = "";
+function submitLead(e){
+  e.preventDefault();
+  var em = document.getElementById('leadEmail').value;
+  if(FORM_ENDPOINT){
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'esganswer-template'})}).catch(function(){});
+  } else {
+    try{ localStorage.setItem('esg_lead', em); }catch(_){}
+  }
+  document.getElementById('leadMsg').textContent = "Thanks — we'll send the template to " + em + " shortly.";
+  document.getElementById('leadForm').reset();
+  return false;
+}
 </script>
 </body>
 </html>

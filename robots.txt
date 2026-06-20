@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esganswer.com/sitemap.xml
