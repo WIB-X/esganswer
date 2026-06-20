@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supplier ESG Self-Check — Free Carbon &amp; ESG Tool for Indian Suppliers | ESG Answer</title>
+<meta name="description" content="Got an ESG questionnaire from a customer? Free tool for Indian SMEs: turn your electricity &amp; fuel bills into a Scope 1 + Scope 2 carbon summary using India's CEA grid factor — ready to send back. No login.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://esganswer.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Supplier ESG Self-Check — free tool for Indian suppliers">
+<meta property="og:description" content="Turn your bills into a customer-ready ESG/carbon summary in 5 minutes. India-correct factors.">
+<meta property="og:url" content="https://esganswer.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#16a34a; --green-d:#15803d; --ink:#0f172a; --body:#334155; --muted:#64748b;
+  --bg:#ffffff; --card:#f8fafc; --border:#e2e8f0; --green-light:#f0fdf4;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.brand{font-family:'Outfit',sans-serif;color:var(--ink);letter-spacing:-0.02em}
+a{color:var(--green-d)}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+/* header */
+header.site{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:10}
+.site .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:20px;font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand svg{color:var(--green)}
+.brand span{color:var(--green)}
+.tagline{font-size:12.5px;color:var(--muted)}
+
+/* hero */
+.hero{padding:48px 0 12px;text-align:center}
+.hero h1{font-size:34px;font-weight:800;line-height:1.15;margin:0 0 14px}
+.hero p{font-size:17px;color:var(--body);max-width:680px;margin:0 auto 8px}
+.hero .sub{font-size:14px;color:var(--muted)}
+.pill{display:inline-block;background:var(--green-light);color:var(--green-d);font-size:12.5px;font-weight:700;padding:5px 13px;border-radius:99px;margin-bottom:18px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin:30px 0 10px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.panel h3{font-size:15px;font-weight:700;margin:0 0 4px}
+.panel .hint{font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.fieldset{margin-bottom:22px}
+.fieldset > .legend{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-d);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.ig{margin-bottom:13px}
+.ig label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.ig .note{font-weight:400;color:var(--muted);font-size:12px}
+.ig input[type=number],.ig input[type=text],.ig input[type=email],.ig select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:9px;font-family:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.ig input:focus,.ig select:focus{outline:none;border-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.yn{display:flex;gap:6px}
+.yn button{flex:1;padding:7px;border:1px solid var(--border);background:#fff;border-radius:8px;font-family:inherit;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.yn button.on{background:var(--green);border-color:var(--green);color:#fff}
+.conv{font-size:12px;color:var(--green-d);cursor:pointer;text-decoration:underline;margin-top:4px;display:inline-block}
+.conv-box{display:none;margin-top:8px;padding:11px;background:#fff;border:1px dashed var(--border);border-radius:9px}
+.conv-box.open{display:block}
+
+/* summary */
+.summary{position:sticky;top:84px;background:linear-gradient(160deg,#ffffff,#f0fdf4);border:1px solid var(--border);border-radius:16px;padding:24px}
+.summary h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 14px;font-weight:700}
+.big-num{font-family:'Outfit';font-size:40px;font-weight:800;color:var(--green-d);line-height:1;letter-spacing:-.03em}
+.big-num small{font-size:15px;color:var(--muted);font-weight:600}
+.sline{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.sline:last-of-type{border-bottom:none}
+.sline .v{font-family:'Outfit';font-weight:700;color:var(--ink)}
+.scope-split{display:flex;gap:8px;margin:14px 0}
+.scope-split>div{flex:1;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.scope-split .lab{font-size:11px;color:var(--muted)}
+.scope-split .v{font-family:'Outfit';font-weight:800;font-size:18px;color:var(--ink)}
+.btn{display:block;width:100%;text-align:center;padding:12px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:'Outfit';font-weight:700;font-size:14.5px;cursor:pointer;margin-top:16px;text-decoration:none}
+.btn:hover{background:var(--green-d)}
+.btn.secondary{background:#fff;color:var(--green-d);border:1px solid var(--green);margin-top:9px}
+.gaps{margin-top:14px;font-size:12.5px;color:var(--muted)}
+.gaps b{color:var(--ink)}
+
+/* content sections */
+section.block{padding:40px 0;border-top:1px solid var(--border)}
+section.block h2{font-size:26px;font-weight:800;margin:0 0 18px}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-family:'Outfit';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step h4{font-family:'Outfit';margin:0 0 3px;font-size:15px;color:var(--ink)}
+.step p{margin:0;font-size:13.5px}
+.faq details{border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:10px;background:var(--card)}
+.faq summary{font-weight:700;color:var(--ink);cursor:pointer;font-size:15px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq details p{margin:10px 0 0;font-size:14px}
+footer{border-top:1px solid var(--border);padding:30px 0;font-size:12.5px;color:var(--muted);text-align:center}
+footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
+
+@media(max-width:780px){.calc{grid-template-columns:1fr}.summary{position:static}.hero h1{font-size:26px}}
+@media print{
+  header.site,.hero,.panel,section.block,footer .trustlinks,.btn{display:none!important}
+  .summary{position:static;border:none;background:#fff;padding:0}
+  body{font-size:12px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Supplier ESG Self-Check","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free tool for Indian SME suppliers to convert electricity and fuel use into a Scope 1 + Scope 2 carbon summary using India's CEA grid emission factor, formatted for BRSR value-chain and VSME questionnaires.","url":"https://esganswer.com/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why did my customer send me an ESG questionnaire?","acceptedAnswer":{"@type":"Answer","text":"Large listed companies in India must report ESG data under SEBI's BRSR framework, and from FY2026-27 this extends to their value chain — their major suppliers. Exporters face the same from EU CSRD rules. Your customer needs your data to complete their own report."}},
+{"@type":"Question","name":"Do I need expensive software to respond?","acceptedAnswer":{"@type":"Answer","text":"No. Enterprise ESG platforms are built for the large company asking you, not for you answering. You need a few numbers from your bills, honest answers about your policies, and a clean one-page summary — which this free tool produces."}},
+{"@type":"Question","name":"Why use an India-specific calculator?","acceptedAnswer":{"@type":"Answer","text":"India's electricity grid is roughly three times more carbon-intensive than the UK or US grid. Free Western calculators use their own grid factors and will understate your emissions by around 70 percent, producing a number your customer cannot use. This tool uses India's official CEA grid emission factor."}},
+{"@type":"Question","name":"What if I do not have a policy the questionnaire asks for?","acceptedAnswer":{"@type":"Answer","text":"Say so honestly and add that you intend to create one. Procurement teams consistently rate a transparent 'not yet, but planned' above a vague 'not applicable'."}}
+]}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      ESG<span>Answer</span>
+    </a>
+    <span class="tagline">Free ESG help for Indian suppliers</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="pill">For SMEs who got an ESG / carbon questionnaire</span>
+    <h1>Answer your customer's ESG questionnaire<br>— without a consultant.</h1>
+    <p>Enter the numbers you already have (your electricity and fuel bills). Get a Scope&nbsp;1&nbsp;+&nbsp;Scope&nbsp;2 carbon summary using India's official CEA grid factor — formatted to send straight back to your customer.</p>
+    <p class="sub">Free · no login · ~5 minutes · India-correct emission factors</p>
+  </div>
+
+  <div class="calc">
+    <!-- INPUTS -->
+    <div class="panel">
+      <h3>Your numbers</h3>
+      <p class="hint">Estimates are fine. Leave anything you don't have blank — you can add it later.</p>
+
+      <div class="fieldset">
+        <div class="legend">⚡ Environment</div>
+
+        <div class="ig">
+          <label>Annual electricity used <span class="note">(kWh/year)</span></label>
+          <input type="number" id="elec" min="0" placeholder="e.g. 24000" oninput="calc()">
+          <span class="conv" onclick="document.getElementById('elecConv').classList.toggle('open')">Only have your ₹ bill? Convert it →</span>
+          <div class="conv-box" id="elecConv">
+            <div class="row2">
+              <div><label style="font-size:12px">Annual ₹ bill</label><input type="number" id="elecRs" min="0" placeholder="₹/year" oninput="convElec()"></div>
+              <div><label style="font-size:12px">₹ per unit</label><input type="number" id="tariff" value="8" step="0.5" oninput="convElec()"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ig"><label>Diesel — generator + vehicles <span class="note">(litres/year)</span></label><input type="number" id="diesel" min="0" placeholder="e.g. 1200" oninput="calc()"></div>
+        <div class="ig"><label>Petrol <span class="note">(litres/year)</span></label><input type="number" id="petrol" min="0" placeholder="e.g. 400" oninput="calc()"></div>
+        <div class="ig"><label>LPG <span class="note">(no. of 19&nbsp;kg commercial cylinders/year)</span></label><input type="number" id="lpgCyl" min="0" placeholder="e.g. 24" oninput="calc()"></div>
+        <div class="ig"><label>CNG / piped natural gas <span class="note">(kg/year, optional)</span></label><input type="number" id="cng" min="0" placeholder="e.g. 0" oninput="calc()"></div>
+        <div class="row2">
+          <div class="ig"><label>Water <span class="note">(kL/yr)</span></label><input type="number" id="water" min="0" placeholder="optional" oninput="calc()"></div>
+          <div class="ig"><label>Waste to landfill <span class="note">(t/yr)</span></label><input type="number" id="waste" min="0" placeholder="optional" oninput="calc()"></div>
+        </div>
+      </div>
+
+      <div class="fieldset">
+        <div class="legend">👥 Social</div>
+        <div class="row2">
+          <div class="ig"><label>Total employees</label><input type="number" id="emp" min="0" placeholder="e.g. 20" oninput="calc()"></div>
+          <div class="ig"><label>of which women</label><input type="number" id="empW" min="0" placeholder="e.g. 7" oninput="calc()"></div>
+        </div>
+        <div class="ig"><label>Pay at least statutory minimum wage?</label><div class="yn" data-yn="minwage"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">Not yet</button></div></div>
+        <div class="ig"><label>Written workplace safety policy?</label><div class="yn" data-yn="safety"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">Not yet</button></div></div>
+        <div class="ig"><label>Anti-harassment / POSH policy?</label><div class="yn" data-yn="posh"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">Not yet</button></div></div>
+        <div class="ig"><label>No child / forced labour policy?</label><div class="yn" data-yn="child"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">Not yet</button></div></div>
+      </div>
+
+      <div class="fieldset">
+        <div class="legend">🏛 Governance &amp; details</div>
+        <div class="ig"><label>Company name <span class="note">(appears on your summary)</span></label><input type="text" id="company" placeholder="Your company" oninput="calc()"></div>
+        <div class="row2">
+          <div class="ig"><label>Sector</label><input type="text" id="sector" placeholder="e.g. Auto components" oninput="calc()"></div>
+          <div class="ig"><label>Contact email</label><input type="email" id="contact" placeholder="you@company" oninput="calc()"></div>
+        </div>
+        <div class="ig"><label>Written code of conduct?</label><div class="yn" data-yn="coc"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">Not yet</button></div></div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary" id="summaryCard">
+      <h3>Supplier ESG Summary</h3>
+      <div class="big-num"><span id="totalT">0.0</span> <small>tCO₂e / year</small></div>
+      <div class="scope-split">
+        <div><div class="lab">Scope 1 (fuel)</div><div class="v" id="s1">0.0</div></div>
+        <div><div class="lab">Scope 2 (electricity)</div><div class="v" id="s2">0.0</div></div>
+      </div>
+      <div class="sline"><span>Emissions intensity</span><span class="v"><span id="intensity">—</span> /employee</span></div>
+      <div class="sline"><span>Workforce</span><span class="v" id="wf">—</span></div>
+      <div class="sline"><span>Water · Waste</span><span class="v" id="ww">—</span></div>
+      <div class="sline"><span>Policies in place</span><span class="v" id="polcount">0 / 5</span></div>
+      <div class="gaps" id="gapsBox"><b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.</div>
+      <button class="btn" onclick="window.print()">⬇ Download / print summary</button>
+      <a class="btn secondary" href="#how">How to send this to your customer</a>
+      <p style="font-size:11px;color:var(--muted);margin:12px 0 0;text-align:center">Methodology: GHG Protocol · Scope 2 via CEA all-India grid factor.</p>
+    </div>
+  </div>
+</main>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <h2>The 5-step response (do it once, reuse it forever)</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h4>Build a one-page evidence folder</h4><p>One spreadsheet with your yearly electricity, fuel, water, headcount and a yes/no policy list answers ~80% of every questionnaire you'll ever get.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h4>Turn bills into carbon numbers</h4><p>Use the tool above — it applies India's CEA grid factor, not a UK/US one, so your Scope 2 number is correct and will survive your customer's assurance check.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h4>Answer social &amp; governance honestly</h4><p>For each policy: if you have it, say yes. If not, say "not yet — planned." Honesty beats a vague "not applicable" every time.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h4>Fill gaps with a dated plan</h4><p>Nobody expects a 20-person firm to have a Scope 3 inventory. A transparent gap with a timeline is a strong answer.</p></div></div>
+      <div class="step"><div class="n">5</div><div><h4>Send the one-page summary, keep a copy</h4><p>Download the summary above, attach it to your reply, and save it. The next customer asks for 90% of the same things.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap faq">
+    <h2>Common questions</h2>
+    <details open><summary>Why did my customer suddenly ask for this?</summary><p>Large listed companies in India must report ESG data under SEBI's BRSR framework, and from FY2026-27 that extends to their value chain — their significant suppliers. If you export, your buyers face the EU's CSRD with the same effect. You're not being singled out; it's becoming a routine part of being a supplier.</p></details>
+    <details><summary>Do I need to buy ESG software?</summary><p>No. The expensive platforms are built for the large company doing the asking. To <em>answer</em>, you need your real numbers, honest policy answers, and a clean summary — exactly what this free tool gives you.</p></details>
+    <details><summary>Why not just use a free UK/US carbon calculator?</summary><p>India's grid is ~3× more carbon-intensive (~0.71 kg CO₂/kWh vs ~0.2). A Western tool understates your footprint by ~70% and gives your customer a number they can't use. This tool uses India's official CEA grid emission factor.</p></details>
+    <details><summary>Is my data stored anywhere?</summary><p>No. Everything is calculated in your browser. Nothing you type here is sent to a server or saved.</p></details>
+  </div>
+</section>
+
+<footer>
+  <p class="method">
+    <b>Methodology &amp; honesty note:</b> Scope&nbsp;2 emissions use the CEA all-India grid emission factor; Scope&nbsp;1 uses standard IPCC/DEFRA fuel factors. This is an educational self-assessment to help you respond to a customer's request — not legal or assurance advice. Always confirm specific obligations with your customer's procurement team. We never fabricate numbers and we don't sell your data.
+  </p>
+  <p>© 2026 ESG Answer · esganswer.com · An independent tool for Indian suppliers.</p>
+</footer>
+
+<script>
+// ===== Emission factors (kg CO2e per unit) =====
+// VERIFY before launch: update EF.elec to the exact CEA CO2 Baseline Database V21 (FY2024-25) value.
+var EF = { elec:0.71, diesel:2.68, petrol:2.31, lpg:2.98, cng:2.69 };
+var LPG_KG_PER_CYL = 19;
+
+var YN = { minwage:null, safety:null, posh:null, child:null, coc:null };
+
+// wire yes/no buttons
+document.querySelectorAll('.yn').forEach(function(grp){
+  var key = grp.getAttribute('data-yn');
+  grp.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){
+      grp.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      YN[key] = b.getAttribute('data-v') === '1';
+      calc();
+    });
+  });
+});
+
+function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v)||v<0 ? 0 : v; }
+function fmt(n){ return n.toLocaleString('en-IN',{maximumFractionDigits:1,minimumFractionDigits:1}); }
+
+function convElec(){
+  var rs = num('elecRs'), tariff = parseFloat(document.getElementById('tariff').value)||8;
+  if(rs>0){ document.getElementById('elec').value = Math.round(rs/tariff); }
+  calc();
+}
+
+function calc(){
+  var elec = num('elec');
+  var diesel = num('diesel'), petrol = num('petrol');
+  var lpg = num('lpgCyl')*LPG_KG_PER_CYL, cng = num('cng');
+  var emp = num('emp'), empW = num('empW');
+  var water = num('water'), waste = num('waste');
+
+  var s2 = elec*EF.elec/1000;                       // tonnes
+  var s1 = (diesel*EF.diesel + petrol*EF.petrol + lpg*EF.lpg + cng*EF.cng)/1000;
+  var total = s1+s2;
+
+  document.getElementById('s1').textContent = fmt(s1);
+  document.getElementById('s2').textContent = fmt(s2);
+  document.getElementById('totalT').textContent = fmt(total);
+  document.getElementById('intensity').textContent = emp>0 ? fmt(total/emp) : '—';
+  document.getElementById('wf').textContent = emp>0 ? (emp + (empW>0? ' ('+Math.round(empW/emp*100)+'% women)':'')) : '—';
+  document.getElementById('ww').textContent = (water>0?water+' kL':'—') + ' · ' + (waste>0?waste+' t':'—');
+
+  // policies
+  var polKeys=['minwage','safety','posh','child','coc'];
+  var yes = polKeys.filter(function(k){return YN[k]===true;}).length;
+  document.getElementById('polcount').textContent = yes+' / 5';
+
+  // gaps & plan — auto from "Not yet" answers
+  var labels={minwage:'Confirm minimum-wage compliance',safety:'Workplace safety policy',posh:'Anti-harassment (POSH) policy',child:'No child/forced labour policy',coc:'Code of conduct'};
+  var gaps = polKeys.filter(function(k){return YN[k]===false;}).map(function(k){return labels[k];});
+  if(total>0 && emp>0) gaps.push('Scope 3 (supply-chain) emissions not yet measured');
+  var g = document.getElementById('gapsBox');
+  if(gaps.length){ g.innerHTML='<b>Gaps &amp; plan (declare honestly):</b> '+gaps.map(function(x){return x+' — <i>planned</i>';}).join('; ')+'.'; }
+  else { g.innerHTML='<b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.'; }
+}
+calc();
+</script>
+</body>
+</html>
