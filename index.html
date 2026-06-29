@@ -347,7 +347,7 @@ function submitLead(e){
   var em = document.getElementById('leadEmail').value;
   // capture the lead (non-blocking)
   if(FORM_ENDPOINT){
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:em,source:'esganswer-evidence-folder'})}).catch(function(){});
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new URLSearchParams({email:em,source:'esganswer-evidence-folder'})}).catch(function(){});
   } else {
     try{ localStorage.setItem('esg_lead', em); }catch(_){}
   }
