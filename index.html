@@ -13,11 +13,11 @@
 <meta property="og:url" content="https://esganswer.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#16a34a">
+<meta name="theme-color" content="#0b7a63">
 <meta property="og:image" content="https://esganswer.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,26 +25,26 @@
 
 <style>
 :root{
-  --green:#16a34a; --green-d:#15803d; --ink:#0f172a; --body:#334155; --muted:#64748b;
-  --bg:#ffffff; --card:#f8fafc; --border:#e2e8f0; --green-light:#f0fdf4;
+  --green:#0b7a63; --green-d:#075345; --ink:#10241d; --body:#3a4a44; --muted:#6b7a73;
+  --bg:#f8faf8; --card:#eef3f0; --border:#dce5e0; --green-light:#e7f4ee;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.brand{font-family:'Outfit',sans-serif;color:var(--ink);letter-spacing:-0.02em}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.brand{font-family:'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-0.02em}
 a{color:var(--green-d)}
 .wrap{max-width:960px;margin:0 auto;padding:0 22px}
 
 /* header */
 header.site{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:10}
 .site .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:20px;font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand{font-size:20px;font-weight:700;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
 .brand svg{color:var(--green)}
 .brand span{color:var(--green)}
 .tagline{font-size:12.5px;color:var(--muted)}
 
 /* hero */
 .hero{padding:48px 0 12px;text-align:center}
-.hero h1{font-size:34px;font-weight:800;line-height:1.15;margin:0 0 14px}
+.hero h1{font-size:34px;font-weight:700;line-height:1.15;margin:0 0 14px}
 .hero p{font-size:17px;color:var(--body);max-width:680px;margin:0 auto 8px}
 .hero .sub{font-size:14px;color:var(--muted)}
 .pill{display:inline-block;background:var(--green-light);color:var(--green-d);font-size:12.5px;font-weight:700;padding:5px 13px;border-radius:99px;margin-bottom:18px}
@@ -70,18 +70,18 @@ header.site{border-bottom:1px solid var(--border);padding:16px 0;position:sticky
 .conv-box.open{display:block}
 
 /* summary */
-.summary{position:sticky;top:84px;background:linear-gradient(160deg,#ffffff,#f0fdf4);border:1px solid var(--border);border-radius:16px;padding:24px}
+.summary{position:sticky;top:84px;background:linear-gradient(160deg,#ffffff,#e7f4ee);border:1px solid var(--border);border-radius:16px;padding:24px}
 .summary h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 14px;font-weight:700}
-.big-num{font-family:'Outfit';font-size:40px;font-weight:800;color:var(--green-d);line-height:1;letter-spacing:-.03em}
+.big-num{font-family:'Space Grotesk';font-size:40px;font-weight:700;color:var(--green-d);line-height:1;letter-spacing:-.03em}
 .big-num small{font-size:15px;color:var(--muted);font-weight:600}
 .sline{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px}
 .sline:last-of-type{border-bottom:none}
-.sline .v{font-family:'Outfit';font-weight:700;color:var(--ink)}
+.sline .v{font-family:'Space Grotesk';font-weight:700;color:var(--ink)}
 .scope-split{display:flex;gap:8px;margin:14px 0}
 .scope-split>div{flex:1;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
 .scope-split .lab{font-size:11px;color:var(--muted)}
-.scope-split .v{font-family:'Outfit';font-weight:800;font-size:18px;color:var(--ink)}
-.btn{display:block;width:100%;text-align:center;padding:12px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:'Outfit';font-weight:700;font-size:14.5px;cursor:pointer;margin-top:16px;text-decoration:none}
+.scope-split .v{font-family:'Space Grotesk';font-weight:700;font-size:18px;color:var(--ink)}
+.btn{display:block;width:100%;text-align:center;padding:12px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:'Space Grotesk';font-weight:700;font-size:14.5px;cursor:pointer;margin-top:16px;text-decoration:none}
 .btn:hover{background:var(--green-d)}
 .btn.secondary{background:#fff;color:var(--green-d);border:1px solid var(--green);margin-top:9px}
 .gaps{margin-top:14px;font-size:12.5px;color:var(--muted)}
@@ -89,11 +89,11 @@ header.site{border-bottom:1px solid var(--border);padding:16px 0;position:sticky
 
 /* content sections */
 section.block{padding:40px 0;border-top:1px solid var(--border)}
-section.block h2{font-size:26px;font-weight:800;margin:0 0 18px}
+section.block h2{font-size:26px;font-weight:700;margin:0 0 18px}
 .steps{display:grid;gap:14px}
 .step{display:flex;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
-.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-family:'Outfit';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
-.step h4{font-family:'Outfit';margin:0 0 3px;font-size:15px;color:var(--ink)}
+.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-family:'Space Grotesk';font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step h4{font-family:'Space Grotesk';margin:0 0 3px;font-size:15px;color:var(--ink)}
 .step p{margin:0;font-size:13.5px}
 .faq details{border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:10px;background:var(--card)}
 .faq summary{font-weight:700;color:var(--ink);cursor:pointer;font-size:15px;list-style:none}
@@ -242,11 +242,11 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
   <div class="wrap">
     <h2>Free step-by-step guides</h2>
     <div style="display:grid;gap:10px;margin-top:6px">
-      <a href="/got-an-esg-questionnaire/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">Got an ESG questionnaire from a customer? What to do →</a>
-      <a href="/brsr-value-chain-suppliers/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">BRSR value-chain rules for suppliers (FY2026–27) →</a>
-      <a href="/calculate-carbon-footprint-small-business-india/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">How to calculate your small business carbon footprint in India →</a>
-      <a href="/vsme-template-explained/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">The VSME template explained — for small suppliers →</a>
-      <a href="/esg-evidence-folder-msme/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Outfit';font-weight:700">The 1-page data folder that answers every questionnaire →</a>
+      <a href="/got-an-esg-questionnaire/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk';font-weight:700">Got an ESG questionnaire from a customer? What to do →</a>
+      <a href="/brsr-value-chain-suppliers/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk';font-weight:700">BRSR value-chain rules for suppliers (FY2026–27) →</a>
+      <a href="/calculate-carbon-footprint-small-business-india/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk';font-weight:700">How to calculate your small business carbon footprint in India →</a>
+      <a href="/vsme-template-explained/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk';font-weight:700">The VSME template explained — for small suppliers →</a>
+      <a href="/esg-evidence-folder-msme/" style="padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk';font-weight:700">The 1-page data folder that answers every questionnaire →</a>
     </div>
   </div>
 </section>
@@ -254,13 +254,13 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
 <section class="block" style="text-align:center">
   <div class="wrap" style="max-width:560px">
     <h2>Get the editable evidence-folder template</h2>
-    <p style="margin-top:-6px">A free spreadsheet with every field a customer questionnaire asks for — fill once, reuse forever. We'll email it to you.</p>
+    <p style="margin-top:-6px">A free spreadsheet with every field a customer questionnaire asks for, plus an auto-calculating carbon summary — fill once, reuse forever. Download it instantly below.</p>
     <form id="leadForm" onsubmit="return submitLead(event)" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">
       <input type="email" id="leadEmail" required placeholder="you@company" style="flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px">
-      <button class="btn" type="submit" style="width:auto;margin:0;padding:11px 22px">Send it to me</button>
+      <button class="btn" type="submit" style="width:auto;margin:0;padding:11px 22px">Download the template</button>
     </form>
     <p id="leadMsg" style="font-size:13px;color:var(--green-d);min-height:18px;margin-top:10px"></p>
-    <p style="font-size:11.5px;color:var(--muted)">We never share your email. No spam — the template plus occasional supplier-ESG tips.</p>
+    <p style="font-size:11.5px;color:var(--muted)">Instant download — no waiting. We never share your email. No spam, just the occasional supplier-ESG tip. · <a href="/esg-evidence-folder-template.xlsx" download>Direct download</a></p>
   </div>
 </section>
 
@@ -336,19 +336,26 @@ function calc(){
 }
 calc();
 
-// ===== Email capture =====
-// TODO before launch: paste your Formspree / Netlify Forms endpoint below to actually
-// receive emails. Until then, entries are kept in localStorage only (nothing is sent).
+// ===== Template delivery + email capture =====
+// The template downloads instantly on submit (below). To ALSO collect emails as leads,
+// create a free form at formspree.io and paste its endpoint here (e.g. https://formspree.io/f/abcdwxyz).
+// Leave blank and the download still works — emails are just kept in this browser's localStorage.
 var FORM_ENDPOINT = "";
+var TEMPLATE_URL = "/esg-evidence-folder-template.xlsx";
 function submitLead(e){
   e.preventDefault();
   var em = document.getElementById('leadEmail').value;
+  // capture the lead (non-blocking)
   if(FORM_ENDPOINT){
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'esganswer-template'})}).catch(function(){});
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:em,source:'esganswer-evidence-folder'})}).catch(function(){});
   } else {
     try{ localStorage.setItem('esg_lead', em); }catch(_){}
   }
-  document.getElementById('leadMsg').textContent = "Thanks — we'll send the template to " + em + " shortly.";
+  // deliver the template immediately
+  var a = document.createElement('a');
+  a.href = TEMPLATE_URL; a.download = 'esg-evidence-folder-template.xlsx';
+  document.body.appendChild(a); a.click(); a.remove();
+  document.getElementById('leadMsg').textContent = "Done — your template is downloading. Didn't start? Use the direct-download link below.";
   document.getElementById('leadForm').reset();
   return false;
 }

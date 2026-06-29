@@ -2,22 +2,22 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#f0fdf4"/>
+      <stop offset="1" stop-color="#e7f4ee"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="0" y="0" width="1200" height="12" fill="#16a34a"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#0b7a63"/>
 
   <!-- brand mark -->
-  <rect x="80" y="78" width="66" height="66" rx="15" fill="#16a34a"/>
+  <rect x="80" y="78" width="66" height="66" rx="15" fill="#0b7a63"/>
   <path d="M128 96 108 117l-11-11" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="166" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="40" font-weight="800" fill="#0f172a">ESG<tspan fill="#16a34a">Answer</tspan></text>
+  <text x="166" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="40" font-weight="800" fill="#10241d">ESG<tspan fill="#0b7a63">Answer</tspan></text>
 
   <!-- headline -->
-  <text x="80" y="300" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#0f172a">Answer your customer's</text>
-  <text x="80" y="382" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#0f172a">ESG questionnaire —</text>
-  <text x="80" y="464" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#16a34a">without a consultant.</text>
+  <text x="80" y="300" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#10241d">Answer your customer's</text>
+  <text x="80" y="382" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#10241d">ESG questionnaire —</text>
+  <text x="80" y="464" font-family="'Segoe UI',Arial,sans-serif" font-size="68" font-weight="800" fill="#0b7a63">without a consultant.</text>
 
   <!-- subline -->
-  <text x="82" y="540" font-family="'Segoe UI',Arial,sans-serif" font-size="30" font-weight="600" fill="#475569">Free tool for Indian suppliers · India-correct CEA factors · esganswer.com</text>
+  <text x="82" y="540" font-family="'Segoe UI',Arial,sans-serif" font-size="30" font-weight="600" fill="#3a4a44">Free tool for Indian suppliers · India-correct CEA factors · esganswer.com</text>
 </svg>
