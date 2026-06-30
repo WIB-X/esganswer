@@ -103,10 +103,23 @@ footer{border-top:1px solid var(--border);padding:30px 0;font-size:12.5px;color:
 footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
 
 @media(max-width:780px){.calc{grid-template-columns:1fr}.summary{position:static}.hero h1{font-size:26px}}
+.print-only{display:none}
 @media print{
-  header.site,.hero,.panel,section.block,footer .trustlinks,.btn{display:none!important}
-  .summary{position:static;border:none;background:#fff;padding:0}
-  body{font-size:12px}
+  header.site,.hero,.panel,section.block,footer,.btn{display:none!important}
+  .summary{position:static;border:none;background:#fff;padding:0;max-width:100%}
+  body{font-size:12px;background:#fff}
+  .summary>h3{display:none}
+  .print-only{display:block}
+  .print-head{margin:0 0 16px;border-bottom:2px solid var(--green);padding-bottom:12px}
+  .ph-brand{font-family:'Space Grotesk';font-weight:700;font-size:15px;color:var(--ink)}
+  .ph-brand span{color:var(--green)}
+  .ph-title{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:12px 0 3px}
+  .ph-co{font-family:'Space Grotesk';font-weight:700;font-size:22px;color:var(--ink);line-height:1.2}
+  .ph-sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .ph-sub span:empty{display:none}
+  .ph-sub span+span:not(:empty):before{content:" · "}
+  .ph-foot{margin-top:18px;font-size:9.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--border);padding-top:8px}
+  .gaps i{font-style:italic}
 }
 </style>
 <script type="application/ld+json">
@@ -118,6 +131,15 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
 {"@type":"Question","name":"Do I need expensive software to respond?","acceptedAnswer":{"@type":"Answer","text":"No. Enterprise ESG platforms are built for the large company asking you, not for you answering. You need a few numbers from your bills, honest answers about your policies, and a clean one-page summary — which this free tool produces."}},
 {"@type":"Question","name":"Why use an India-specific calculator?","acceptedAnswer":{"@type":"Answer","text":"India's electricity grid is roughly three times more carbon-intensive than the UK or US grid. Free Western calculators use their own grid factors and will understate your emissions by around 70 percent, producing a number your customer cannot use. This tool uses India's official CEA grid emission factor."}},
 {"@type":"Question","name":"What if I do not have a policy the questionnaire asks for?","acceptedAnswer":{"@type":"Answer","text":"Say so honestly and add that you intend to create one. Procurement teams consistently rate a transparent 'not yet, but planned' above a vague 'not applicable'."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to respond to a customer's ESG questionnaire","description":"A five-step method for an Indian SME supplier to answer a customer's ESG, BRSR value-chain or VSME questionnaire — do it once and reuse it.","totalTime":"PT1H","step":[
+{"@type":"HowToStep","position":1,"name":"Build a one-page evidence folder","text":"Put your yearly electricity, fuel, water, headcount and a yes/no policy list in one spreadsheet. It answers about 80% of every questionnaire you will receive."},
+{"@type":"HowToStep","position":2,"name":"Turn bills into carbon numbers","text":"Apply India's CEA grid emission factor (not a UK or US one) so your Scope 2 figure is correct and survives your customer's assurance check."},
+{"@type":"HowToStep","position":3,"name":"Answer social and governance honestly","text":"For each policy, say yes if you have it, or 'not yet — planned' if you do not. Honesty beats a vague 'not applicable'."},
+{"@type":"HowToStep","position":4,"name":"Fill gaps with a dated plan","text":"A transparent gap with a timeline is a strong answer; nobody expects a 20-person firm to have a full Scope 3 inventory."},
+{"@type":"HowToStep","position":5,"name":"Send the one-page summary and keep a copy","text":"Attach the summary to your reply and save it. The next customer will ask for about 90% of the same information."}
 ]}
 </script>
 </head>
@@ -197,6 +219,12 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
 
     <!-- SUMMARY -->
     <div class="summary" id="summaryCard">
+      <div class="print-only print-head">
+        <div class="ph-brand">ESG<span>Answer</span></div>
+        <div class="ph-title">Supplier ESG Summary</div>
+        <div class="ph-co" id="phCompany">Your company</div>
+        <div class="ph-sub"><span id="phSector"></span><span id="phDate"></span></div>
+      </div>
       <h3>Supplier ESG Summary</h3>
       <div class="big-num"><span id="totalT">0.0</span> <small>tCO₂e / year</small></div>
       <div class="scope-split">
@@ -208,9 +236,10 @@ footer .method{max-width:680px;margin:0 auto 14px;line-height:1.7}
       <div class="sline"><span>Water · Waste</span><span class="v" id="ww">—</span></div>
       <div class="sline"><span>Policies in place</span><span class="v" id="polcount">0 / 5</span></div>
       <div class="gaps" id="gapsBox"><b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.</div>
-      <button class="btn" onclick="window.print()">⬇ Download / print summary</button>
+      <button class="btn" onclick="downloadSummary()">⬇ Download summary (PDF)</button>
       <a class="btn secondary" href="#how">How to send this to your customer</a>
       <p style="font-size:11px;color:var(--muted);margin:12px 0 0;text-align:center">Methodology: GHG Protocol · Scope 2 via CEA all-India grid factor (V21).</p>
+      <p class="print-only ph-foot">Generated free at esganswer.com · Figures are supplier self-assessed on the GHG Protocol basis using India's official CEA grid emission factor (V21.0, 0.7117 kg CO₂/kWh). Not assurance or legal advice.</p>
     </div>
   </div>
 </main>
@@ -321,6 +350,11 @@ function calc(){
   document.getElementById('wf').textContent = emp>0 ? (emp + (empW>0? ' ('+Math.round(empW/emp*100)+'% women)':'')) : '—';
   document.getElementById('ww').textContent = (water>0?water+' kL':'—') + ' · ' + (waste>0?waste+' t':'—');
 
+  // print-report header
+  var co = (document.getElementById('company').value||'').trim();
+  document.getElementById('phCompany').textContent = co || 'Your company';
+  document.getElementById('phSector').textContent = (document.getElementById('sector').value||'').trim();
+
   // policies
   var polKeys=['minwage','safety','posh','child','coc'];
   var yes = polKeys.filter(function(k){return YN[k]===true;}).length;
@@ -335,6 +369,16 @@ function calc(){
   else { g.innerHTML='<b>Gaps &amp; plan:</b> fill the form to see what to declare honestly.'; }
 }
 calc();
+
+// ===== Branded one-page summary (PDF via print) =====
+function downloadSummary(){
+  try{
+    document.getElementById('phDate').textContent =
+      new Date().toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'numeric'});
+  }catch(_){}
+  calc();
+  window.print();
+}
 
 // ===== Template delivery + email capture =====
 // The template downloads instantly on submit (below). To ALSO collect emails as leads,
